@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    #    DENTRO DE CONTENEDOR DOCKER
+    #    url: jdbc:postgresql://db:5432/magic_bd
+    #    FUERA DE CONTENEDOR DOCKER
+    url: jdbc:postgresql://localhost:5432/magic_bd
+    username: paulinchi
+    password: paulinchi
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  profiles:
+    active: dev
