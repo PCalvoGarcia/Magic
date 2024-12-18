@@ -1,6 +1,9 @@
 package com.mgc.Magic.dto;
 
 import com.mgc.Magic.entity.Card;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.*;
 
 public record RequestCardDto(
@@ -8,16 +11,18 @@ public record RequestCardDto(
         @Size(max = 50, message = "Name must have less than 50 characters")
         String name,
 
-        @NotBlank(message = "Mana type cannot be empty")
-        @Pattern(regexp = "^(white|blue|green|red|black)$", message = "Mana type must be one of: white, blue, green, red, black")
+        @NotNull(message = "Mana type cannot be empty")
+        @Enumerated(EnumType.STRING)
+        @Column(nullable = false)
         Card.ManaType manaType,
 
         @NotNull(message = "Mana cost cannot be null")
         @Min(value = 0, message = "Mana cost must be a positive number")
         int manaCost,
 
-        @NotBlank(message = "Type cannot be empty")
-        @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Type must only contain letters")
+        @NotNull(message = "Type cannot be empty")
+        @Enumerated(EnumType.STRING)
+        @Column(nullable = false)
         Card.Type type,
 
         @NotBlank(message = "Type line cannot be empty")
