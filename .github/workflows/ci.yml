@@ -3,11 +3,11 @@ name: CI - Spring Boot
 on:
   push:
     branches:
-      - main
+      - master
       - develop
   pull_request:
     branches:
-      - main
+      - master
 
 
 jobs:
