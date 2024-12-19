@@ -1,0 +1,1 @@
+[CI](https://github.com/PCalvoGarcia/Magic/actions/workflows/ci.yml/badge.svg)
