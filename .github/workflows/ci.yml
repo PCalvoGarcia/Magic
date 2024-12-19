@@ -1,0 +1,44 @@
+name: CI - Spring Boot
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Verificar el repositorio
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      # 2. Configurar Java 21
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      # 3. Configurar caché para Maven
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2
+
+      # 4. Construir el proyecto
+      - name: Build with Maven
+        run: mvn clean compile
+
+      # 5. Ejecutar pruebas
+      - name: Run Tests
+        run: mvn test
+
