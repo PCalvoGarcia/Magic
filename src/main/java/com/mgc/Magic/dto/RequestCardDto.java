@@ -42,15 +42,14 @@ public record RequestCardDto(
 ) {
     public Card toEntity() {
         Card card = new Card();
-        card.setName(this.name);
+        card.setName(this.name.toUpperCase());
         card.setManaType(this.manaType);
         card.setManaCost(this.manaCost);
         card.setType(this.type);
-        card.setTypeLine(this.typeLine);
-        card.setExpansionSymbol(this.expansionSymbol);
-        card.setSkills(this.skills);
-        card.setTextEnvironment(this.textEnvironment);
-        card.setForce(this.force);
+        card.setTypeLine(this.typeLine.toUpperCase());
+        card.setExpansionSymbol(this.expansionSymbol != null ?this.expansionSymbol.toUpperCase() : null);
+        card.setSkills(this.skills != null ?this.skills.toUpperCase() : null);
+        card.setTextEnvironment(this.textEnvironment != null ?this.textEnvironment.toUpperCase() : null);
         card.setResistance(this.resistance);
         return card;
     }

@@ -5,6 +5,7 @@ import com.mgc.Magic.dto.ResponseCardDto;
 import com.mgc.Magic.repository.CardRepository;
 import com.mgc.Magic.services.CardService;
 import jakarta.validation.Valid;
+import jakarta.websocket.server.PathParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,9 +36,9 @@ public class CardController {
     }
 
     @GetMapping(params = "name")
-    public ResponseEntity<ResponseCardDto> getCardByName(@RequestParam String name) {
-        ResponseCardDto card = CARD_SERVICE.findCardByName(name);
-        return new ResponseEntity<>(card, HttpStatus.OK);
+    public ResponseEntity<List<ResponseCardDto>> getCardListByName(@PathParam("name") String name) {
+        List<ResponseCardDto> cards = CARD_SERVICE.findCardsByName(name);
+        return new ResponseEntity<>(cards, HttpStatus.OK);
     }
 
     @PostMapping
