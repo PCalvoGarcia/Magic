@@ -7,11 +7,11 @@ import jakarta.persistence.*;
 public class Card {
 
     public static enum ManaType {
-        WHITE, BLUE, GREEN, RED, BLACK
+        WHITE,BLUE,GREEN,RED,BLACK,COLORLESS;
     }
 
     public static enum Type {
-        ARTIFACT, CREATURE, ENCHANTMENT, EARTH, BLOODLINE, SORCERY, INSTANT
+        ARTIFACT,CREATURE,ENCHANTMENT,EARTH,BLOODLINE,SORCERY,INSTANT;
     }
 
     @Id
@@ -39,6 +39,10 @@ public class Card {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public int getResistance() {

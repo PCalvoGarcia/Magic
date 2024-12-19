@@ -2,7 +2,7 @@ version: '3.8'
 services:
   db:
     image: postgres:17
-    container_name: springboot_postgres_db
+    container_name: magic_bd
     environment:
       POSTGRES_USER: paulinchi
       POSTGRES_PASSWORD: paulinchi
