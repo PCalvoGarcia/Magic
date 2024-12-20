@@ -51,7 +51,7 @@ public class CardService {
 
     //GET BY NAME LIST
     public List<ResponseCardDto> findCardsByName(String name){
-        List<Card> cards = CARD_REPOSITORY.findByName(name);
+        List<Card> cards = CARD_REPOSITORY.findByName(name.toUpperCase());
         if (cards.isEmpty()) {
             throw new NoNameFoundException(name);
         }

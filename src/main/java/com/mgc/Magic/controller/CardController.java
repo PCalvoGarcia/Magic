@@ -35,8 +35,8 @@ public class CardController {
         return new ResponseEntity<>(card, HttpStatus.OK);
     }
 
-    @GetMapping(params = "name")
-    public ResponseEntity<List<ResponseCardDto>> getCardListByName(@PathParam("name") String name) {
+    @GetMapping("/by/{name}")
+    public ResponseEntity<List<ResponseCardDto>> getCardListByName(@PathVariable String name) {
         List<ResponseCardDto> cards = CARD_SERVICE.findCardsByName(name);
         return new ResponseEntity<>(cards, HttpStatus.OK);
     }
