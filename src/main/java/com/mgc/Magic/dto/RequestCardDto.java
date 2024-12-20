@@ -51,6 +51,7 @@ public record RequestCardDto(
         card.setSkills(this.skills != null ?this.skills.toUpperCase() : null);
         card.setTextEnvironment(this.textEnvironment != null ?this.textEnvironment.toUpperCase() : null);
         card.setResistance(this.resistance);
+
         return card;
     }
 }

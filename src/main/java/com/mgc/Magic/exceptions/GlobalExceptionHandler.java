@@ -19,5 +19,14 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(NoIdFoundException.class)
+    public ResponseEntity<String> handleNotFoundRegisters(NoIdFoundException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(CardExistExcepcion.class)
+    public ResponseEntity<String> handleNotFoundRegisters(CardExistExcepcion e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
 
 }
